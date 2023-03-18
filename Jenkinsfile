@@ -1,12 +1,9 @@
 pipeline {
   agent any
-  tools {
-      gradle 'gradle'
-  }
   stages {
       stage("Build") {
         steps {
-           sh './gradlew clean build'
+           sh './gradlew build --no-daemon'
         }
         post {
             success {
