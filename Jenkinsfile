@@ -1,13 +1,12 @@
 pipeline {
   agent any
   tools {
-      maven 'M3'
+      gradle 'gradle'
   }
   stages {
       stage("Build") {
         steps {
-           sh 'mvn clean package'
-           sh 'bin/makeindex'
+           sh './gradlew clean build'
         }
         post {
             success {
